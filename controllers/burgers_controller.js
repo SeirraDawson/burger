@@ -10,22 +10,21 @@ var burger = require ("../models/burger.js");
 router.get("/", function(req, res) {
   burger.all(function(burgerData) {
     //console.log(burgerData)
-    res.render("index", {
-      burgers: data
-    });
+    res.render("index", {burgerData});
   });
 });
 
   router.put("burgers/update/", function(req, res) {
     burger.new(req.body.burgerID, function(results) {
       res.redirect("/");
-      console.log(results)
+      // console.log(results);
     });
   });
 
   router.post("burgers/create", function(req, res) {
-    burger.devour(req.body.burgerName, function(data) {
+    burger.devour(req.body.burgerName, function(results) {
       res.redirect("/");
+      // console.log(results);
     });
   });
 
