@@ -10,13 +10,13 @@ var connection = mysql.createConnection({
   database: "burger_db"
 });
 
-// Connect
+// Connect to MySQL
 connection.connect(function(err) {
   if (err) {
-    console.error("error connection: " + err.stack);
+    console.error("MySQL error connection: " + err.stack + "\n\n");
     return;
   }
-  console.log("connected as id: " + connection.threadId);
+  console.log("MySQL database connected as id: " + connection.threadId + "\n\n");
 });
 
 // Export connection for ORM to use
